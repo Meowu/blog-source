@@ -12,7 +12,7 @@
       xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
               if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                  console.log('RES:', xhr.responseText);
+                  document.body.innerText = xhr.responseText;
               } else {
                   console.log('Request failed: ', xhr.status);
               }
@@ -20,7 +20,7 @@
       }
       xhr.open('GET', 'http://127.0.0.1:3000/greet', true);
     //   xhr.setRequestHeader("Access-Control-Request-Method", "GET"); // 必须在 open 方法之后 send 之前调用
-      xhr.setRequestHeader("X-Greeting", "Hello");
+    //   xhr.setRequestHeader("X-Greeting", "Hello");
       xhr.send(null);
     </script>
 </body>
